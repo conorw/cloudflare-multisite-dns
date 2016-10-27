@@ -111,6 +111,13 @@ jQuery(document).ready(function($){
 						<input type=checkbox name="cfdns_options[console_calls]"  value="1" <?php checked( "1", $cfdns_console_calls); ?>> API calls to console (debug)<br />
 					</td>
 				</tr>
+				<tr >
+					<th><label for="category_base">Bulk Add Existing Sites</label></th>
+					<td class="col1"></td>
+					<td class="col2">
+						<input type="button" value="Bulk Add Existing Sites" id="cfdns-all-sites" class="button-primary"/>
+					</td>
+				</tr>
 				<?php endif; ?>
 
 				<tr>

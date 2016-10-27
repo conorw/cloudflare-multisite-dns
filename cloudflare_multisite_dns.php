@@ -135,6 +135,12 @@ function wporg_wpmu_new_blog_example( $blog_id, $user_id, $domain, $path, $site_
 }
 add_action( 'wpmu_new_blog', 'wporg_wpmu_new_blog_example', 10, 6 );
 
+function cfdns_all_sites(){
+	$ccpurge = new CFDNS_API;
+	$ccpurge->bulk_add_all_sites();
+}
+add_action( 'wp_ajax_cfdns_all_sites', 'cfdns_all_sites' );
+
 
 
 

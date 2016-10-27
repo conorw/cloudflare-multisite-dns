@@ -16,7 +16,13 @@ class CFDNS_API {
 	function __construct() {
 		$this->cfdns_options = get_option('cfdns_options');
 	}
-
+	function bulk_add_all_sites(){
+		// loop around all sites and add to Cloudflare
+		$blog_list = get_blog_list( 0, 'all' );
+		foreach ($blog_list AS $blog) {
+			$this->add_dns_after_blog_creation($blog['domain']);
+		}
+	}
 	function add_dns_after_blog_creation($domain){
 
 		$extra_post_variables = '{"type":"A","name":"'.$domain.'","content":"'.$this->cfdns_options['ip'].'","proxied":true}';
