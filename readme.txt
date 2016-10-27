@@ -1,5 +1,5 @@
-=== CloudFlare(R) Cache Purge ===
-Contributors: shanaver
+=== CloudFlare Multisite DNS ===
+Contributors: conorw
 Tags: CloudFlare, DNS, multisite, API
 Requires at least: 3.0.1
 Tested up to: 4.2
@@ -10,7 +10,7 @@ Author URI: https://productiveprogrammer.io
 
 
 == Description ==
-
+Add a DNS entry to your Cloudflare zone when a new site is created on your network.
 
 == Installation ==
 
@@ -19,7 +19,7 @@ Author URI: https://productiveprogrammer.io
 1. Create a free CloudFlare account at http://www.cloudflare.com
 1. Set up 'DNS' in CloudFlare
 1. Enter your CloudFlare API token on the plugin settings page
-1. Each zone (yourdomain.com) on CloudFlare has a unique number identifier. If you need to locate the zoneid for a domain, simply go to the "Reports and Stats' link for that domain (the zone id appears at the end with an equal sign, such as zid=xxxxxx).
+1. Each zone (yourdomain.com) on CloudFlare has a unique number identifier. If you need to locate the zoneid for a domain, open up your developer tools when viewing your Cloudflare pages.
 
 == Frequently Asked Questions ==
 
