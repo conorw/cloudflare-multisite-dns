@@ -20,6 +20,7 @@ class CFDNS_API {
 		// loop around all sites and add to Cloudflare
 		$blog_list = get_blog_list( 0, 'all' );
 		foreach ($blog_list AS $blog) {
+			cfdns_transaction_logging('Attempting Blog'.$blog['domain'],'Wordpress' );
 			$this->add_dns_after_blog_creation($blog['domain']);
 		}
 	}
