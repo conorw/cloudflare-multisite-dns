@@ -61,8 +61,11 @@ class CFDNS_API {
 		if($results['response']['code'] != '200'){
 			cfdns_transaction_logging(print_r($results, true), 'error');
 		}
-
-		return json_decode($results['body']);
+		$entry = json_decode($results['body'])['result'];
+		$entry['proxied'] = true;
+		$args = array( 'headers' => $headers, 'body' => $entry);
+		$updated = wp_remote_post($this->cfdns_endpoint.'zones/'.$this->cfdns_options['account'].'/'.'dns_records/'.$entry['id'], $args);
+		return json_decode($updated['body']);
 	}
 
 	function add_dns_after_blog_creation($domain){
