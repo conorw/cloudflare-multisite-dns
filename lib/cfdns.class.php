@@ -48,5 +48,10 @@ class CFDNS_API {
 			cfdns_transaction_logging(print_r($results->get_error_message(), true), 'Wordpress Error');
 		}
 	}
+	function get_wordpress_domain(){
+		$domain = preg_replace('/http:\/\//', '', get_home_url() );
+		$domain = preg_replace('/www./', '', $domain  );
+		return $domain;
+	}
 
 }
