@@ -12,7 +12,7 @@ if($cfdns_options_post){
 $cfdns_options 					= get_option('cfdns_options');
 $cfdns_email 						= isset($cfdns_options['email']) ? $cfdns_options['email'] : '';
 $cfdns_token 						= isset($cfdns_options['token']) ? $cfdns_options['token'] : '';
-$cfdns_account 					= $cfdns_options['account'] != "" ? $cfdns_options['account'] : $cfdns->get_wordpress_domain();
+$cfdns_account 					= $cfdns_options['account'] != "" ? $cfdns_options['account'] : "";
 $cfdns_console_details 			= isset($cfdns_options['console_details']) ? $cfdns_options['console_details'] : "0";
 $cfdns_console_debugger 			= isset($cfdns_options['console_debugger']) ? $cfdns_options['console_debugger'] : "0";
 $cfdns_console_calls 				= isset($cfdns_options['console_calls']) ? $cfdns_options['console_calls'] : "0";

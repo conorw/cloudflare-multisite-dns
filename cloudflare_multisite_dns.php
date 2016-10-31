@@ -128,12 +128,19 @@ add_action( 'wp_ajax_cfdns_get_table_logging', 'cfdns_get_table_logging' );
  * @param int    $site_id Site ID. Only relevant on multi-network installs.
  * @param array  $meta    Meta data. Used to set initial site options.
  */
-function wporg_wpmu_new_blog_example( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
+function wporg_wpmu_new_blog( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
 	// TODO: support domain mapping
 	$cfdns = new CFDNS_API;
 	$cfdns->add_dns_after_blog_creation( $domain );
 }
-add_action( 'wpmu_new_blog', 'wporg_wpmu_new_blog_example', 10, 6 );
+add_action( 'wpmu_new_blog', 'wporg_wpmu_new_blog', 10, 6 );
+function wporg_wpmu_delete_blog( $blog_id, $drop ) {
+	// TODO: support domain mapping
+	$cfdns = new CFDNS_API;
+	$blog_details = get_blog_details($blog_id);
+	$cfdns->delete_dns_after_blog_deletion( $blog_details->domain );
+}
+add_action( 'wpmu_delete_blog', 'wporg_wpmu_delete_blog', 10, 6 );
 
 function cfdns_all_sites(){
 	$cfdns = new CFDNS_API;
