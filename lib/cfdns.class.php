@@ -31,7 +31,7 @@ class CFDNS_API {
 	}
 	function add_dns_after_blog_creation($domain){
 
-		$extra_post_variables = '{"type":"A","name":"'.$domain.'","content":"'.$this->cfdns_options['ip'].'","proxied":true}';
+		$extra_post_variables = '{"type":"CNAME","name":"'.$domain.'","content":"'.$this->cfdns_options['ip'].'","proxied":true}';
 
 		if( !$this->allow_connect()){
 				return;
@@ -49,7 +49,7 @@ function get_domain_identifier($domain){
 			}
 		$args = array( 'headers' => $this->get_auth_headers(), 'body' => $extra_post_variables);
 
-		$results = wp_remote_get($this->cfdns_endpoint.'zones/'.$this->cfdns_options['account'].'/dns_records?type=A&name='.$domain, $args);
+		$results = wp_remote_get($this->cfdns_endpoint.'zones/'.$this->cfdns_options['account'].'/dns_records?type=CNAME&name='.$domain, $args);
 
 		$this->print_results($results);
 
