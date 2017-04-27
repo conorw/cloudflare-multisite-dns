@@ -86,7 +86,7 @@ jQuery(document).ready(function($){
 					</td>
 				</tr>
 				<tr>
-					<th><label for="category_base">Your IP Address</label></th>
+					<th><label for="category_base">Your Domain Name</label></th>
 					<td class="col1"></td>
 					<td class="col2">
 						<input type="text" class="regular-text code" value="<?php echo $cfdns_ip; ?>" name="cfdns_options[ip]" id="cfdns-ip">
